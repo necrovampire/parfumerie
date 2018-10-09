@@ -1,16 +1,16 @@
 /*Modelo entidad relacion */
 nombre() PK=() FK={}
 
-Producto(cod, nombre, costo)  PK=(cod)
-MateriaPrima(cod, nombre, costoBase)  PK=(cod)
-Formula(productoFinal, producto, materiaPrima) PK=(productoFinal, producto, materiaPrima) FK={productofial=>Producto.cod, producto=>Producto.cod, materiaPrima=>MateriaPrima.cod}
+Producto(codigo, nombre, costo)  PK=(codigo)
+MateriaPrima(codigo, descripcion, costoBase)  PK=(codigo)
+Formula(CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) PK=(CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) FK={CodigoProductoFinal=>Producto.codigo, CodigoProductoBase=>Producto.codigo, CodigoMateriaPrima=>MateriaPrima.codigo}
 
 IVA(ID,descripcion,valor) PK=(ID)
-Cliente(CUIT, RazonSocial, domicilio, telefono, IVA) PK=(CUIT) FK={IVA=>IVA.ID}
-Pedido(ID, descripcion, fecha) PK=(ID)
-Item(ID, cantidad, precioUnitario) PK=(ID)
-Solicita(cliente, pedido,item)  PK=(cliente, pedido,item) FK={cliente=>Cliente.CUIT, pedido=>PedidoID,item=>Item.ID}
+Cliente(CUIT, RazonSocial, domicilio, telefono, ID_IVA) PK=(CUIT) FK={ID_IVA=>IVA.ID}
+Pedido(NumeroPedido, descripcion, fecha) PK=(NumeroPedido)
+Item(IDItem, cantidad, PrecioUnitario, CodigoProducto) PK=(IDItem) FK={CodigoProducto=>Producto.codigo}
+Solicita(CUITCliente, NumeroPedido, IDItem)  PK=(CUITCliente, NumeroPedido, IDItem) FK={CUITCliente=>Cliente.CUIT, NumeroPedido=>Pedido.NumeroPedido,IDItem=>Item.IDItem}
 
-OrdenFabricacion(NroPartida, fechaOrden, fechaVencimiento) 
-Fabricacion(pedido, item, orden) PK=(pedido, item) FK={pedido=>Pedido.ID, item=>Item.ID, orden=>OrdenFabricacion.NroPartida}
+OrdenFabricacion(NumeroPartida, fechaOrden, fechaVencimiento) PK=(NumeroPartida)
+Fabricacion(NumeroPedido, IDItem, NumeroPartida) PK=(NumeroPedido, IDItem) FK={NumeroPedido=>Pedido.NumeroPedido, IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
 
