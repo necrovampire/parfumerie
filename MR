@@ -1,1 +1,16 @@
 /*Modelo entidad relacion */
+nombre() PK=() FK={}
+
+Producto(cod, nombre, costo)  PK=(cod)
+MateriaPrima(cod, nombre, costoBase)  PK=(cod)
+Formula(productoFinal, producto, materiaPrima) PK=(productoFinal, producto, materiaPrima) FK={productofial=>Producto.cod, producto=>Producto.cod, materiaPrima=>MateriaPrima.cod}
+
+IVA(ID,descripcion,valor) PK=(ID)
+Cliente(CUIT, RazonSocial, domicilio, telefono, IVA) PK=(CUIT) FK={IVA=>IVA.ID}
+Pedido(ID, descripcion, fecha) PK=(ID)
+Item(ID, cantidad, precioUnitario) PK=(ID)
+Solicita(cliente, pedido,item)  PK=(cliente, pedido,item) FK={cliente=>Cliente.CUIT, pedido=>PedidoID,item=>Item.ID}
+
+OrdenFabricacion(NroPartida, fechaOrden, fechaVencimiento) 
+Fabricacion(pedido, item, orden) PK=(pedido, item) FK={pedido=>Pedido.ID, item=>Item.ID, orden=>OrdenFabricacion.NroPartida}
+
