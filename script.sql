@@ -71,7 +71,7 @@ create table PedidosRealizados(
 );
 
 create table OrdenFabricacion(
-	NumeroPartida integer NOT NULL PRIMARY KEY,
+	NumeroPartida integer NOT NULL,
     FechaOrden date NOT NULL,
     FechaVencimiento date NOT NULL,
 	constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
