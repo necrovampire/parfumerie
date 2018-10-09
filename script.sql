@@ -62,9 +62,10 @@ create table Item(
 );
 
 create table PedidosRealizados(
-	IDItem integer NOT NULL PRIMARY KEY,
+	IDItem integer NOT NULL,
     CUITCliente integer(9) NOT NULL,
     NumeroPedido integer NOT NULL,
+	primary key (IDItem, CUITCliente),
     constraint FK_Item_IDItemPedido foreign key (IDItem) references Item (IDItem),
     constraint FK_Cliente_CUITCliente foreign key (CUITCliente) references Cliente (CUIT),
     constraint FK_Pedido_NPedido foreign key (NumeroPedido) references Pedido (NumeroPedido)
