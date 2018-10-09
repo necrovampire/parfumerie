@@ -3,14 +3,14 @@ CREATE DATABASE Perfumerie;
 USE Perfumerie;
 
 create table Producto(
-	Codigo varchar(8) NOT NULL UNIQUE,
+	Codigo varchar(8) NOT NULL,
     Nombre varchar(30) NOT NULL,
     Costo decimal(6, 2) NOT NULL,
     constraint PK_Producto_Codigo primary key (Codigo)
 );
 
 create table MateriaPrima(
-	Codigo varchar(8) NOT NULL UNIQUE,
+	Codigo varchar(8) NOT NULL,
     Descripcion varchar(30) NOT NULL,
     CostoBase decimal(6, 2) NOT NULL,
     constraint PK_MateriaPrima_Codigo primary key (Codigo)
@@ -19,7 +19,7 @@ create table MateriaPrima(
 /*DROP TABLE Formula;*/
 
 create table Formula( /**/
-	CodigoProductoFinal varchar(8) NOT NULL UNIQUE,
+	CodigoProductoFinal varchar(8) NOT NULL,
     CodigoProductoBase varchar(8),
     CodigoMateriaPrima varchar(8),
     primary key (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima),
@@ -29,59 +29,60 @@ create table Formula( /**/
 );
 
 create table IVA(
-	ID integer NOT NULL UNIQUE AUTO_INCREMENT,
+	ID integer NOT NULL AUTO_INCREMENT,
     Descripcion varchar(30) NOT NULL,
     Valor integer NOT NULL,
     constraint PK_IVA_ID primary key (ID)
 );
 
 create table Cliente(
-	CUIT integer(9) NOT NULL UNIQUE,
-    Razon_Social varchar(15) NOT NULL,
+	CUIT integer(9) NOT NULL,
+    RazonSocial varchar(15) NOT NULL,
     Domicilio varchar(30) NOT NULL,
     Telefono integer(8) NOT NULL,
-    ID_IVA integer NOT NULL UNIQUE,
+    ID_IVA integer NOT NULL,
     constraint PK_Cliente_CUIT primary key (CUIT),
     constraint FK_Cliente_ID_IVA foreign key (ID_IVA) references IVA (ID)
 );
 
 create table Pedido(
-	Numero_Pedido integer NOT NULL UNIQUE AUTO_INCREMENT,
+	NumeroPedido integer NOT NULL AUTO_INCREMENT,
     Descripcion varchar(30) NOT NULL,
     Fecha date NOT NULL,
-    constraint PK_Pedido_NumeroPedido primary key (Numero_Pedido)
+    constraint PK_Pedido_NumeroPedido primary key (NumeroPedido)
 );
 
 create table Item(
-	ID_Item integer NOT NULL UNIQUE AUTO_INCREMENT,
-    Precio_Unitario decimal(6, 2) NOT NULL,
+	IDItem integer NOT NULL AUTO_INCREMENT,
+    PrecioUnitario decimal(6, 2) NOT NULL,
     Cantidad integer NOT NULL,
-    Codigo_Producto varchar(8) NOT NULL,
-    constraint PK_Item_IDItem primary key (ID_Item),
-    constraint FK_Item_CodProducto foreign key (Codigo_Producto) references Producto (Codigo)
+    CodigoProducto varchar(8) NOT NULL,
+    constraint PK_Item_IDItem primary key (IDItem),
+    constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo)
 );
 
-create table Pedidos_Realizados(
-	ID_Item integer NOT NULL UNIQUE PRIMARY KEY,
-    CUIT_Cliente integer(9) NOT NULL UNIQUE,
-    Numero_Pedido integer NOT NULL UNIQUE,
-    constraint FK_Item_IDItemPedido foreign key (ID_Item) references Item (ID_Item),
-    constraint FK_Cliente_CUITCliente foreign key (CUIT_Cliente) references Cliente (CUIT),
-    constraint FK_Pedido_NPedido foreign key (Numero_Pedido) references Pedido (Numero_Pedido)
+create table PedidosRealizados(
+	IDItem integer NOT NULL PRIMARY KEY,
+    CUITCliente integer(9) NOT NULL,
+    NumeroPedido integer NOT NULL,
+    constraint FK_Item_IDItemPedido foreign key (IDItem) references Item (IDItem),
+    constraint FK_Cliente_CUITCliente foreign key (CUITCliente) references Cliente (CUIT),
+    constraint FK_Pedido_NPedido foreign key (NumeroPedido) references Pedido (NumeroPedido)
 );
 
-create table Orden_Fabricacion(
-	Numero_Partida integer NOT NULL UNIQUE PRIMARY KEY,
-    Fecha_Orden date NOT NULL,
-    Fecha_Vencimiento date NOT NULL
+create table OrdenFabricacion(
+	NumeroPartida integer NOT NULL PRIMARY KEY,
+    FechaOrden date NOT NULL,
+    FechaVencimiento date NOT NULL,
+	constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
 );
 
-create table Ordenes_Realizadas(
-	Numero_Pedido integer NOT NULL UNIQUE,
-    ID_Item integer NOT NULL UNIQUE,
-    Numero_Partida integer NOT NULL UNIQUE,
-    primary key (Numero_Pedido, ID_Item),
-    constraint FK_Item_IDItemOrden foreign key (ID_Item) references Item (ID_Item),
-    constraint FK_Pedido_NPedidoOrden foreign key (Numero_Pedido) references Pedido (Numero_Pedido),
-    constraint FK_OrdenFabricacion_NumeroPartida foreign key (Numero_Partida) references Orden_Fabricacion (Numero_Partida)
+create table OrdenesRealizadas(
+	NumeroPedido integer NOT NULL,
+    IDItem integer NOT NULL,
+    NumeroPartida integer NOT NULL,
+    primary key (NumeroPedido, IDItem),
+    constraint FK_Item_IDItemOrden foreign key (IDItem) references Item (IDItem),
+    constraint FK_Pedido_NPedidoOrden foreign key (NumeroPedido) references Pedido (NumeroPedido),
+    constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)
 );
