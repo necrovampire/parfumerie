@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS Perfumerie;
+
 CREATE DATABASE Perfumerie;
 
 USE Perfumerie;
@@ -36,8 +38,8 @@ create table IVA(
 );
 
 create table Cliente(
-	CUIT integer(9) NOT NULL,
-    RazonSocial varchar(15) NOT NULL,
+	CUIT bigint NOT NULL,
+    RazonSocial varchar(25) NOT NULL,
     Domicilio varchar(30) NOT NULL,
     Telefono integer(8) NOT NULL,
     ID_IVA integer NOT NULL,
@@ -63,7 +65,7 @@ create table Item(
 
 create table PedidosRealizados(
 	IDItem integer NOT NULL,
-    CUITCliente integer(9) NOT NULL,
+    CUITCliente bigint NOT NULL,
     NumeroPedido integer NOT NULL,
 	primary key (IDItem, CUITCliente),
     constraint FK_Item_IDItemPedido foreign key (IDItem) references Item (IDItem),
