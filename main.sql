@@ -63,7 +63,7 @@ create table Item(
     constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo)
 );
 
-create table PedidosRealizados(
+create table PedidoRealizado(
 	IDItem integer NOT NULL,
     CUITCliente bigint NOT NULL,
     NumeroPedido integer NOT NULL,
@@ -80,7 +80,7 @@ create table OrdenFabricacion(
 	constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
 );
 
-create table OrdenesRealizadas(
+create table OrdenRealizada(
 	NumeroPedido integer NOT NULL,
     IDItem integer NOT NULL,
     NumeroPartida integer NOT NULL,
