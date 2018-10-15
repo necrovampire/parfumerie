@@ -16,13 +16,19 @@ INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT4", "Lavan
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT5", "Flor de Rosa", 80);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT6", "Almizce", 70);
 
--- Insertamos elementos en la tabla Formula
+-- Insertamos elementos en la tabla FormulaUnaria
 
-INSERT INTO formula (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) VALUES ("ASD", "DAS", "LAT6");
-INSERT INTO formula (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) VALUES ("DSA", "CUL", "LAT5");
-INSERT INTO formula (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) VALUES ("MIA", "DAS", "LAT4");
-INSERT INTO formula (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) VALUES ("DAS", "CUL", "LAT2");
-INSERT INTO formula (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) VALUES ("CUL", "DAS", "LAT1");
+INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("ASD", "DAS");
+INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("DSA", "CUL");
+INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("DAS", "CUL");
+INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("CUL", "DAS");
+
+-- Insertamos elementos en la tabla FormulaBinaria
+
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("DSA", "LAT5");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MIA", "LAT4");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("DAS", "LAT2");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("CUL", "LAT1");
 
 -- Insertamos tipos de IVA
 
