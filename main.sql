@@ -20,13 +20,19 @@ create table MateriaPrima(
 
 /*DROP TABLE Formula;*/
 
-create table Formula( /**/
+create table FormulaUnaria( /**/
 	CodigoProductoFinal varchar(8) NOT NULL,
-    CodigoProductoBase varchar(8),
-    CodigoMateriaPrima varchar(8),
-    primary key (CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima),
-    constraint FK_Formula_CodigoProductoFinal foreign key (CodigoProductoFinal) references Producto (Codigo),
-    constraint FK_Formula_CodigoProductoBase foreign key (CodigoProductoBase) references Producto (Codigo),
+    CodigoProductoBase varchar(8) NOT NULL,
+    primary key (CodigoProductoFinal, CodigoProductoBase),
+    constraint FK_Formula_CodigoProductoFinalU foreign key (CodigoProductoFinal) references Producto (Codigo),
+    constraint FK_Formula_CodigoProductoBase foreign key (CodigoProductoBase) references Producto (Codigo)
+);
+
+create table FormulaBinaria( /**/
+	CodigoProductoFinal varchar(8) NOT NULL,
+    CodigoMateriaPrima varchar(8) NOT NULL,
+    primary key (CodigoProductoFinal, CodigoMateriaPrima),
+    constraint FK_Formula_CodigoProductoFinalB foreign key (CodigoProductoFinal) references Producto (Codigo),
     constraint FK_Formula_CodigoMateriaPrima foreign key (CodigoMateriaPrima) references MateriaPrima (Codigo)
 );
 
