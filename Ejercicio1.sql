@@ -1,4 +1,4 @@
-drop database ejercicio1;
+drop database if exists ejercicio1;
 create database ejercicio1;
 use ejercicio1;
 
