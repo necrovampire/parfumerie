@@ -4,47 +4,51 @@ CREATE DATABASE Perfumerie;
 
 USE Perfumerie;
 
+/*DROP TABLE Producto;*/
 create table Producto(
-	Codigo varchar(8) NOT NULL,
+    Codigo varchar(8) NOT NULL,
     Nombre varchar(30) NOT NULL,
     Costo decimal(6, 2) NOT NULL,
     constraint PK_Producto_Codigo primary key (Codigo)
 );
 
+/*DROP TABLE MateriaPrima;*/
 create table MateriaPrima(
-	Codigo varchar(8) NOT NULL,
+    Codigo varchar(8) NOT NULL,
     Descripcion varchar(30) NOT NULL,
     CostoBase decimal(6, 2) NOT NULL,
     constraint PK_MateriaPrima_Codigo primary key (Codigo)
 );
 
-/*DROP TABLE Formula;*/
-
+/*DROP TABLE FormulaUnaria;*/
 create table FormulaUnaria( /**/
-	CodigoProductoFinal varchar(8) NOT NULL,
+    CodigoProductoFinal varchar(8) NOT NULL,
     CodigoProductoBase varchar(8) NOT NULL,
     primary key (CodigoProductoFinal, CodigoProductoBase),
     constraint FK_Formula_CodigoProductoFinalU foreign key (CodigoProductoFinal) references Producto (Codigo),
     constraint FK_Formula_CodigoProductoBase foreign key (CodigoProductoBase) references Producto (Codigo)
 );
 
+/*DROP TABLE FormulaBinaria;*/
 create table FormulaBinaria( /**/
-	CodigoProductoFinal varchar(8) NOT NULL,
+    CodigoProductoFinal varchar(8) NOT NULL,
     CodigoMateriaPrima varchar(8) NOT NULL,
     primary key (CodigoProductoFinal, CodigoMateriaPrima),
     constraint FK_Formula_CodigoProductoFinalB foreign key (CodigoProductoFinal) references Producto (Codigo),
     constraint FK_Formula_CodigoMateriaPrima foreign key (CodigoMateriaPrima) references MateriaPrima (Codigo)
 );
 
+/*DROP TABLE IVA;*/
 create table IVA(
-	ID integer NOT NULL AUTO_INCREMENT,
+    ID integer NOT NULL AUTO_INCREMENT,
     Descripcion varchar(30) NOT NULL,
     Valor integer NOT NULL,
     constraint PK_IVA_ID primary key (ID)
 );
 
+/*DROP TABLE Cliente;*/
 create table Cliente(
-	CUIT bigint NOT NULL,
+    CUIT bigint NOT NULL,
     RazonSocial varchar(25) NOT NULL,
     Domicilio varchar(30) NOT NULL,
     Telefono integer(8) NOT NULL,
@@ -53,15 +57,17 @@ create table Cliente(
     constraint FK_Cliente_ID_IVA foreign key (ID_IVA) references IVA (ID)
 );
 
+/*DROP TABLE Pedido;*/
 create table Pedido(
-	NumeroPedido integer NOT NULL AUTO_INCREMENT,
+    NumeroPedido integer NOT NULL AUTO_INCREMENT,
     Descripcion varchar(30) NOT NULL,
     Fecha date NOT NULL,
     constraint PK_Pedido_NumeroPedido primary key (NumeroPedido)
 );
 
+/*DROP TABLE Item;*/
 create table Item(
-	IDItem integer NOT NULL AUTO_INCREMENT,
+    IDItem integer NOT NULL AUTO_INCREMENT,
     PrecioUnitario decimal(6, 2) NOT NULL,
     Cantidad integer NOT NULL,
     CodigoProducto varchar(8) NOT NULL,
@@ -69,25 +75,28 @@ create table Item(
     constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo)
 );
 
+/*DROP TABLE PedidoRealizado;*/
 create table PedidoRealizado(
-	IDItem integer NOT NULL,
+    IDItem integer NOT NULL,
     CUITCliente bigint NOT NULL,
     NumeroPedido integer NOT NULL,
-	primary key (IDItem, CUITCliente),
+    primary key (IDItem, CUITCliente),
     constraint FK_Item_IDItemPedido foreign key (IDItem) references Item (IDItem),
     constraint FK_Cliente_CUITCliente foreign key (CUITCliente) references Cliente (CUIT),
     constraint FK_Pedido_NPedido foreign key (NumeroPedido) references Pedido (NumeroPedido)
 );
 
+/*DROP TABLE OrdenFabricacion;*/
 create table OrdenFabricacion(
-	NumeroPartida integer NOT NULL,
+    NumeroPartida integer NOT NULL,
     FechaOrden date NOT NULL,
     FechaVencimiento date NOT NULL,
-	constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
+   constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
 );
 
+/*DROP TABLE OrdenRealizada;*/
 create table OrdenRealizada(
-	NumeroPedido integer NOT NULL,
+    NumeroPedido integer NOT NULL,
     IDItem integer NOT NULL,
     NumeroPartida integer NOT NULL,
     primary key (NumeroPedido, IDItem),
@@ -95,3 +104,31 @@ create table OrdenRealizada(
     constraint FK_Pedido_NPedidoOrden foreign key (NumeroPedido) references Pedido (NumeroPedido),
     constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)
 );
+
+/*DROP TABLE Proveedor;*/
+create table Proveedor(
+    CUIT decimal(8,0) NOT NULL,
+    razonSocial varchar(30) NOT NULL,
+    Domicilio varchar(30),
+    mail varchar(30),
+    primary key (CUIT),
+);
+
+/*DROP TABLE Lista;*/
+create table Lista(
+    CodMP integer NOT NULL,
+    fecha date, 
+    precio decimal(6,2),
+    primary key (CodMP),
+);
+/*DROP TABLE Relacion;*/
+create table Relacion(
+    CUIT decimal(8,0) NOT NULL,
+    lista integer NOT NULL,
+    materiaPrima varchar(8) NOT NULL,
+    primary key (CUIT, lista),
+    constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
+    constraint FK_Lista_CodMP key (lista) references Lista (CodMP),
+    constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
+);
+
