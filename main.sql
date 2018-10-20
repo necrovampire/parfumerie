@@ -111,7 +111,7 @@ create table Proveedor(
     razonSocial varchar(30) NOT NULL,
     Domicilio varchar(30),
     mail varchar(30),
-    primary key (CUIT),
+    primary key (CUIT)
 );
 
 /*DROP TABLE Lista;*/
@@ -119,7 +119,7 @@ create table Lista(
     CodMP integer NOT NULL,
     fecha date, 
     precio decimal(6,2),
-    primary key (CodMP),
+    primary key (CodMP)
 );
 /*DROP TABLE Relacion;*/
 create table Relacion(
@@ -128,7 +128,7 @@ create table Relacion(
     materiaPrima varchar(8) NOT NULL,
     primary key (CUIT, lista),
     constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
-    constraint FK_Lista_CodMP key (lista) references Lista (CodMP),
+    constraint FK_Lista_CodMP foreign key (lista) references Lista (CodMP),
     constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
 );
 
