@@ -6,11 +6,11 @@ use ejercicio1;
 
 /*3*/ select descripcion from Material where cod_mat in(1,3,6,9,18);
 
-/*4*/ select cod_pro,nombre from Proveedor where domicilio like "suipacha" and year(fecha_alta) = 2001;
+/*4*/ select cod_pro,nombre from Proveedor where domicilio like '%suipacha%' and year(fecha_alta) = 2001;
 
 /*5*/ select Proveedor.nombre,Ciudad.nombre from Proveedor inner join Ciudad on Ciudad.cod_ciu = Proveedor.cod_ciu;
 
-/*6*/ select Proveedor.nombre from Proveedor inner join Ciudad on Ciudad.cod_ciu = Proveedor.cod_ciu where Ciudad.nombre like "la plata";
+/*6*/ select Proveedor.nombre from Proveedor inner join Ciudad on Ciudad.cod_ciu = Proveedor.cod_ciu where Ciudad.nombre like 'la plata';
 
 /*7*/ select Contiene.nro from Contiene
 inner join Almacen on Almacen.nro = Contiene.nro
@@ -18,7 +18,7 @@ inner join Articulo on Articulo.cod_art = Contiene.cod_art where Articulo.descri
 
 /*8*/ select Provisto_por.cod_mat, Material.descripcion from Provisto_por
 inner join Material on Material.cod_mat = Provisto_por.cod_mat
-inner join Proveedor on Proveedor.cod_pro = Provisto_por.cod_pro where Proveedor.cod_ciu = (select cod_ciu from Ciudad where nombre = "Rosario");
+inner join Proveedor on Proveedor.cod_pro = Provisto_por.cod_pro where Proveedor.cod_ciu = (select cod_ciu from Ciudad where nombre = 'Rosario');
 
 /*9*/ select Proveedor.nombre from Provisto_por
 inner join Proveedor on Proveedor.cod_pro = Provisto_por.cod_pro
