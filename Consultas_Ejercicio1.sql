@@ -6,7 +6,7 @@ use ejercicio1;
 
 /*3*/ select descripcion from Material where cod_mat in(1,3,6,9,18);
 
-/*4*/ select cod_pro,nombre from Proveedor where domicilio like '%suipacha%' and year(fecha_alta) = 2001;
+/*4*/ select cod_pro,nombre from Proveedor where domicilio like 'suipacha' and year(fecha_alta) = '2001';
 
 /*5*/ select Proveedor.nombre,Ciudad.nombre from Proveedor inner join Ciudad on Ciudad.cod_ciu = Proveedor.cod_ciu;
 
