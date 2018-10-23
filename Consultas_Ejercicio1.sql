@@ -22,10 +22,10 @@ inner join Proveedor on Proveedor.cod_pro = Provisto_por.cod_pro where Proveedor
 
 /*9*/ select Proveedor.nombre from Provisto_por
 inner join Proveedor on Proveedor.cod_pro = Provisto_por.cod_pro
-inner join Material on Material.cod_mat = Provisto_por.cod_mat where Material.cod_mat = (select Compuesto_por.cod_mat from Compuesto_por
-inner join Material on Material.cod_mat = Compuesto_por.cod_mat
-inner join Articulo on Articulo.cod_art = Compuesto_por.cod_art where Articulo.cod_art = (select Contiene.cod_art from Contiene
-inner join Articulo on Articulo.cod_art = Contiene.cod_art
+inner join Material on Material.cod_mat = Provisto_por.cod_mat
+inner join Compuesto_por on Compuesto_por.cod_mat = Material.cod_mat
+inner join Articulo on Articulo.cod_art = Compuesto_por.cod_art
+inner join Contiene on Contiene.cod_art = Articulo.cod_art
 inner join Almacen on Almacen.nro = Contiene.nro where Almacen.responsable = "Martin Gomez"));
 
 /*10*/ update Almacen set nro = 20 where nro = 10;
