@@ -1,5 +1,30 @@
 USE Perfumerie;
 
+
+
+-- Insertamos Materias Primas
+-- TRUNCATE materiaprima;
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUA", "Agua destilada", 60);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUAM", "AQuamarine", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCH", "Alcohol etilico", 90);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCHIS", "Alcohol isopropilico", 150);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("OXIALU", "Oxido de aluminio", 120);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLROJO", "Tinte rojo n°1", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLROJ", "Tinte rojo n°2", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLAZU", "Tinte azul °3", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLAMA", "Tinte amarillo n°4", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLVIO", "Tinte violeta n°5", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLVER", "Tinte verde n°42", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLNAR", "Tinte naranja n°43", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLNEG", "Tinte negro n°26", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEFRU", "Esencia frutilla", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEVAI", "Esencia vainilla", 40);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESELAV", "Esencia Lavanda", 80);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEROS", "Esencia flor de Rosa", 80);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEALM", "Esencia almizce", 70);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEHEN", "Esencia Heno de Pravia", 50);
+
+
 -- Insertamos Productos
 -- TRUNCATE producto;
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("ASD", "Perfume 1", 200.50);
@@ -7,14 +32,6 @@ INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("DSA", "Perfume 2", 200.80)
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("DAS", "Esencia de Vainilla", 80.00);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("CUL", "Esencia de Frutilla", 90.00);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("MIA", "Perfume 3", 310.00);
-
--- Insertamos Materias Primas
--- TRUNCATE materiaprima;
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT1", "Frutilla", 50);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT2", "Vainilla", 40);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT4", "Lavanda", 80);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT5", "Flor de Rosa", 80);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("LAT6", "Almizce", 70);
 
 -- Insertamos elementos en la tabla FormulaUnaria
 -- TRUNCATE formulaunaria;
