@@ -5,7 +5,7 @@ USE Perfumerie;
 -- Insertamos Materias Primas
 -- TRUNCATE materiaprima;
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUA", "Agua destilada", 60);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUAM", "AQuamarine", 50);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUAM", "Aquamarine", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCH", "Alcohol etilico", 90);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCHIS", "Alcohol isopropilico", 150);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("OXIALU", "Oxido de aluminio", 120);
@@ -27,7 +27,10 @@ INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEHEN", "Ese
 
 -- Insertamos Productos
 -- TRUNCATE producto;
-INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("ASD", "Perfume 1", 200.50);
+INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("MARINE", "AquaMarine", 1200.50);
+INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("HENOPRAV", "Heno de pravia", 1200.50);
+INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("PERNIN1", "Perfume Niño 1", 1200.50);
+
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("DSA", "Perfume 2", 200.80);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("DAS", "Esencia de Vainilla", 80.00);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("CUL", "Esencia de Frutilla", 90.00);
@@ -42,10 +45,18 @@ INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("CUL
 
 -- Insertamos elementos en la tabla FormulaBinaria
 -- TRUNCATE formulabinaria;
-INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("DSA", "LAT5");
-INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MIA", "LAT4");
-INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("DAS", "LAT2");
-INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("CUL", "LAT1");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "AQUAM");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "ALCHIS");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "ALCH");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "COLVER");
+
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("HENOPRAV", "ESEHEN");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("HENOPRAV", "COLAMA");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("HENOPRAV", "ALCH");
+
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("PERNIN1", "ESEVAI");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("PERNIN1", "ALCH");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("PERNIN1", "COLROJ");
 
 -- Insertamos tipos de IVA
 -- TRUNCATE iva;
