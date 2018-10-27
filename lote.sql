@@ -30,15 +30,15 @@ INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEHEN", "Ese
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESESHAL", "Esencia Shalimar", 70);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEACQUA", "Esencia Acqua di Parma", 70);
 
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico 100cc", 100);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico 200cc", 200);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico 250cc", 300);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico 500cc", 400);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico redondo 100cc", 100);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA", "Envase plastico cuadrado 100cc", 100);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR", "Envase vidrio 100cc", 150);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR", "Envase vidrio 200cc", 300);
-INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR", "Envase vidrio 500cc", 600);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA100", "Envase plastico 100cc", 100);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA200", "Envase plastico 200cc", 200);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA250", "Envase plastico 250cc", 300);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLA500", "Envase plastico 500cc", 400);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLARE100", "Envase plastico redondo 100cc", 100);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVPLACU101", "Envase plastico cuadrado 100cc", 100);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR100", "Envase vidrio 100cc", 150);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR200", "Envase vidrio 200cc", 300);
+INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("EMVIDR500", "Envase vidrio 500cc", 600);
 
 
 -- Insertamos Productos
@@ -73,7 +73,7 @@ INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("CO
 
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("ACQUAPAR", "ALCHIS");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("ACQUAPAR", "COLDOR1");
-INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("ACQUAPAR", "COLPLAT");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("ACQUAPAR", "COLPLA");
 
 -- Casos de materia prima y producto
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("EAUCHOCB", "COLDOR");
