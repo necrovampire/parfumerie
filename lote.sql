@@ -52,7 +52,7 @@ INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("EAUCHOCB", "Eau de chocobo
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("COLSHAL", "Cologne Shalimar", 1200.50);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("ACQUAPAR", "Cologne Acqua di parma", 1200.50);
 INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("THOM", "Cologne di trhav", 1200.50);
-
+INSERT INTO producto (Codigo, Nombre, Costo) VALUES ("THOM1", "Cologne di trhav 2", 1200.50);
 
 -- Insertamos elementos en la tabla FormulaBinaria
 -- TRUNCATE formulabinaria;
@@ -83,6 +83,41 @@ INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MA
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "ALCH");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "COLVER");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "COLAZU");
+
+-- tomy
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "AQUA");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ALCH");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ALCHIS");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "OXIALU");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLROJ");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLROJ2");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLAZU");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLAMA");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLVIO");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLVER");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLNAR");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLNEG");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLDOR");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLPLA");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "COLDOR1");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "AQUAM");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEFRU");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEVAI");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESELAV");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEROS");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEALM");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEHEN");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESESHAL");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "ESEACQUA");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLA100");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLA200");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLA250");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLA500");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLARE100");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVPLACU101");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVIDR100");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVIDR200");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("THOM1", "EMVIDR500");
 
 
 -- Insertamos elementos en la tabla FormulaUnaria
