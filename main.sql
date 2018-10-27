@@ -6,7 +6,7 @@ USE Perfumerie;
 
 /*DROP TABLE Producto;*/
 create table Producto(
-    Codigo varchar(8) NOT NULL,
+    Codigo varchar(12) NOT NULL,
     Nombre varchar(30) NOT NULL,
     Costo decimal(6, 2) NOT NULL,
     constraint PK_Producto_Codigo primary key (Codigo)
@@ -14,7 +14,7 @@ create table Producto(
 
 /*DROP TABLE MateriaPrima;*/
 create table MateriaPrima(
-    Codigo varchar(8) NOT NULL,
+    Codigo varchar(12) NOT NULL,
     Descripcion varchar(30) NOT NULL,
     CostoBase decimal(6, 2) NOT NULL,
     constraint PK_MateriaPrima_Codigo primary key (Codigo)
@@ -22,8 +22,8 @@ create table MateriaPrima(
 
 /*DROP TABLE FormulaUnaria;*/
 create table FormulaUnaria( /**/
-    CodigoProductoFinal varchar(8) NOT NULL,
-    CodigoProductoBase varchar(8) NOT NULL,
+    CodigoProductoFinal varchar(12) NOT NULL,
+    CodigoProductoBase varchar(12) NOT NULL,
     primary key (CodigoProductoFinal, CodigoProductoBase),
     constraint FK_Formula_CodigoProductoFinalU foreign key (CodigoProductoFinal) references Producto (Codigo),
     constraint FK_Formula_CodigoProductoBase foreign key (CodigoProductoBase) references Producto (Codigo)
@@ -31,8 +31,8 @@ create table FormulaUnaria( /**/
 
 /*DROP TABLE FormulaBinaria;*/
 create table FormulaBinaria( /**/
-    CodigoProductoFinal varchar(8) NOT NULL,
-    CodigoMateriaPrima varchar(8) NOT NULL,
+    CodigoProductoFinal varchar(12) NOT NULL,
+    CodigoMateriaPrima varchar(12) NOT NULL,
     primary key (CodigoProductoFinal, CodigoMateriaPrima),
     constraint FK_Formula_CodigoProductoFinalB foreign key (CodigoProductoFinal) references Producto (Codigo),
     constraint FK_Formula_CodigoMateriaPrima foreign key (CodigoMateriaPrima) references MateriaPrima (Codigo)
@@ -70,7 +70,7 @@ create table Item(
     IDItem integer NOT NULL AUTO_INCREMENT,
     PrecioUnitario decimal(6, 2) NOT NULL,
     Cantidad integer NOT NULL,
-    CodigoProducto varchar(8) NOT NULL,
+    CodigoProducto varchar(12) NOT NULL,
     constraint PK_Item_IDItem primary key (IDItem),
     constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo)
 );
@@ -125,7 +125,7 @@ create table Lista(
 create table Relacion(
     CUIT decimal(8,0) NOT NULL,
     lista integer NOT NULL,
-    materiaPrima varchar(8) NOT NULL,
+    materiaPrima varchar(12) NOT NULL,
     primary key (CUIT, lista),
     constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
     constraint FK_Lista_CodMP foreign key (lista) references Lista (CodMP),
