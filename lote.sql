@@ -8,6 +8,7 @@ INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUA", "Agua 
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCH", "Alcohol etilico", 90);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ALCHIS", "Alcohol isopropilico", 150);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("OXIALU", "Oxido de aluminio", 120);
+
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLROJ", "Tinte rojo n°1", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLROJ2", "Tinte rojo n°2", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLAZU", "Tinte azul °3", 50);
@@ -19,6 +20,9 @@ INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLNEG", "Tin
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLDOR", "Tinte dorado n°56", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLPLA", "Tinte Plateado n°57", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("COLDOR1", "Tinte dorado n°59", 50);
+
+
+
 
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("AQUAM", "Esencia Aquamarine", 50);
 INSERT INTO materiaprima (Codigo, Descripcion, CostoBase) VALUES ("ESEFRU", "Esencia frutilla", 50);
@@ -64,6 +68,8 @@ INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MA
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "ALCHIS");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "ALCH");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "COLVER");
+INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("MARINE", "COLAZU");
+
 
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("HENOPRAV", "ESEHEN");
 INSERT INTO formulabinaria (CodigoProductoFinal, CodigoMateriaPrima) VALUES ("HENOPRAV", "COLAMA");
@@ -102,6 +108,7 @@ INSERT INTO formulaunaria (CodigoProductoFinal, CodigoProductoBase) VALUES ("CUL
 INSERT INTO iva (ID, Descripcion, Valor) VALUES (1, "Repercutido 10", 10);
 INSERT INTO iva (ID, Descripcion, Valor) VALUES (12, "Repercutido 21", 21);
 INSERT INTO iva (ID, Descripcion, Valor) VALUES (40, "Repercutido 4", 4);
+INSERT INTO iva (ID, Descripcion, Valor) VALUES (100, "Excento", 0);
 
 -- Insertamos Clientes
 
@@ -109,17 +116,21 @@ INSERT INTO iva (ID, Descripcion, Valor) VALUES (40, "Repercutido 4", 4);
 INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (30710123388, "Personas Jurídicas", "Calle Falsa 123", 44438353, 1);
 INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (30710123389, "Garcia Armenteros", "Calle Falsa 1234", 44438354, 12);
 INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (31710123389, "Grupo Modesto", "Calle Falsa 2234", 44438355, 40);
+INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (31804714718, "El-cid", "Evergreen 487", 41746481, 100);
+
 
 -- Insertamos Pedidos
 
 -- TRUNCATE pedido;
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes", utc_date());
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes2", utc_date());
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("frutilla", utc_date());
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("Eau de Chocobo", '2016/07/07');                                              
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes", '2018/07/07');
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes2", '2008/07/08');
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("frutilla", '2008/07/10');
 
 -- Insertamos Items
                                                 
 -- TRUNCATE item;
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "EAUCHOCB");
 INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (300, 1, "ASD");
 INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (350, 2, "DSA");
 INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (180, 5, "CUL");
@@ -127,20 +138,24 @@ INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (180, 5, "CUL
 -- Insertamos Pedidos Realizados
 
 -- TRUNCATE pedidorealizado;
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (1, 30710123388, 1);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (2, 30710123389, 2);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (3, 31710123389, 3);
+INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (1, 31804714718, 1);
+
+INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (2, 30710123388, 2);
+INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (3, 30710123389, 3);
+INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (4, 31710123389, 4);
 
 -- Insertamos Órdenes de Fabricación
 
 -- TRUNCATE ordenfabricacion;
-INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (666, '', utc_date());
-INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (777, utc_date(), utc_date());
-INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (888, utc_date(), utc_date());
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (171, '2016/07/07', '2016/08/07');
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (666, '2018/07/07, '2018/08/07);
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (777, '2008/07/08','2008/08/08');
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (888, '2008/07/10', '2008/08/10');
 
 -- Insertamos Órdenes Realizadas
 
 -- TRUNCATE ordenrealizada;
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (1, 1, 666);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 2, 777);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (3, 3, 888);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (1, 1, 171);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 2, 666);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (3, 3, 777);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (4, 4, 888);
