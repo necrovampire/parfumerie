@@ -27,25 +27,32 @@ on OrdenFabricacion.NumeroPartida = OrdenRealizada.NumeroPartida
 group by materiaprima.Codigo;
 
 -- Reporte de composición de productos
-
-/*select Producto.codigo, Producto.nombre as nombre, materiaprima.Descripcion, Producto.nombre as pbase
-from Producto
-left join FormulaBinaria
-on FormulaBinaria.CodigoProductoFinal = Producto.codigo
-union all
-select Producto.codigo, Producto.nombre as nombre, materiaprima.Descripcion, Producto.nombre as pbase
-from Producto
-left join FormulaBinaria
-on FormulaBinaria.CodigoProductoFinal = Producto.codigo;*/
-
-select Producto.codigo
- from producto
-full outer join formulabinaria
-on FormulaBinaria.CodigoProductoFinal = Producto.codigo;
+select pfinal.Codigo AS CodigoProductoFinal, pfinal.Nombre AS NombreProductoFinal,
+pbase.Codigo AS CodigoProductoBase, pbase.Nombre AS NombreProductoBase,
+mp.codigo as CodigoMateriaPrima, mp.descripcion as DescripcionMateriaPrima
+FROM producto AS pfinal
+LEFT JOIN formulaunaria AS fu
+ON pfinal.Codigo = fu.CodigoProductoFinal
+LEFT JOIN producto AS pbase
+ON pbase.Codigo = fu.CodigoProductoBase
+left join formulabinaria as fb
+on fb.CodigoProductoFinal = pfinal.Codigo
+left join materiaprima as mp
+on mp.codigo = fb.CodigoMateriaPrima;
 
 -- Lista de nuestros clientes más importantes en cuanto a productos pedidos.
 -- cantidad precio pedido, productos distintos?
 -- lista segun producto
+
+select cliente.cuit, cliente.razonsocial, SUM(item.cantidad) AS CantidadProductosPedidos 
+from cliente
+inner join pedidorealizado
+on pedidorealizado.CUITCliente = cliente.cuit
+inner join item
+on item.iditem = pedidorealizado.iditem
+group by cliente.cuit
+ORDER BY CantidadProductosPedidos desc
+limit 5;
 
 -- ¿Qué productos utilizan TODAS las materias primas?
 -- ninguno
@@ -63,6 +70,18 @@ having (select count(codigo) from materiaprima) = count(formulabinaria.CodigoPro
 
 -- Ranking de productos más vendidos en el último año.
 -- mayor al promedio
+
+select p.codigo, p.nombre, AVG(i.cantidad) AS PromedioVentaAnual
+FROM Producto AS p
+INNER JOIN Item AS i
+ON i.CodigoProducto = p.Codigo
+INNER JOIN PedidoRealizado AS pr
+ON pr.IDItem = i.IDItem
+INNER JOIN Pedido AS pe
+ON pe.NumeroPedido = pr.NumeroPedido
+WHERE year(pe.Fecha) = year(curdate())
+group by p.codigo
+order by i.cantidad desc;
 
 -- Obtener las órdenes de fabricación que cumplen con fabricar un pedido dado.
 -- 3 y 4 comparten la misma orden
