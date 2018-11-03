@@ -86,7 +86,28 @@ order by i.cantidad desc;
 -- Obtener las órdenes de fabricación que cumplen con fabricar un pedido dado.
 -- 3 y 4 comparten la misma orden
 
+
+
 -- Dado un pedido, cuánto cuesta fabricarlo y su precio de venta final.-
 -- pedido.ID, pedido descripcion. count(producto), count precio item( precio unitario * cantidad)
+
+select DISTINCT item.iditem, pedido.numeropedido, pedido.descripcion, sum(item.cantidad) as TotalProductos, sum(item.cantidad * item.PrecioUnitario) as CostoFabricacion,
+(item.PrecioUnitario*((iva.valor/100)+1))*item.cantidad as PrecioVentaFinal
+from pedido
+inner join ordenrealizada
+on pedido.numeropedido = ordenrealizada.NumeroPedido
+inner join ordenfabricacion
+on ordenfabricacion.numeropartida = ordenrealizada.NumeroPartida
+inner join item
+on item.iditem = ordenrealizada.iditem
+inner join pedidorealizado
+on pedidorealizado.NumeroPedido = pedido.numeropedido
+inner join cliente
+on cliente.cuit = pedidorealizado.cuitcliente
+inner join iva
+on iva.id = cliente.ID_IVA
+where pedido.numeropedido = 4;
+
+
 
 -- ¿Cuáles son las materias primas provistas por un único proveedor? Contestar este ítem como parte del puntaje extra.
