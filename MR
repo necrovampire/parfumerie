@@ -12,7 +12,7 @@ Item(IDItem, cantidad, PrecioUnitario, CodigoProducto) PK=(IDItem) FK={CodigoPro
 Solicita(CUITCliente, NumeroPedido, IDItem)  PK=(CUITCliente, NumeroPedido, IDItem) FK={CUITCliente=>Cliente.CUIT, NumeroPedido=>Pedido.NumeroPedido,IDItem=>Item.IDItem}
 
 OrdenFabricacion(NumeroPartida, fechaOrden, fechaVencimiento) PK=(NumeroPartida)
-Fabricacion(NumeroPedido, IDItem, NumeroPartida) PK=(NumeroPedido, IDItem) FK={NumeroPedido=>Pedido.NumeroPedido, IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
+OrdenRealizada(NumeroPedido, IDItem, NumeroPartida) PK=(NumeroPedido, IDItem) FK={NumeroPedido=>Pedido.NumeroPedido, IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
 
 /* Punto extra 
 Proveedor() PK=() FK={}
