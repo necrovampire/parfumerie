@@ -99,7 +99,7 @@ create table OrdenRealizada(
     NumeroPedido integer NOT NULL,
     IDItem integer NOT NULL,
     NumeroPartida integer NOT NULL,
-    primary key (NumeroPedido, IDItem),
+    primary key (NumeroPedido, IDItem, NumeroPartida),
     constraint FK_Item_IDItemOrden foreign key (IDItem) references Item (IDItem),
     constraint FK_Pedido_NPedidoOrden foreign key (NumeroPedido) references Pedido (NumeroPedido),
     constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)

@@ -245,7 +245,8 @@ INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUE
 -- 5
 INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (371, '2018-09-12', '2018-10-12');
 -- 6
-INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (401, '2018-10-03', '2018-11-02');
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (401, '2018-10-03', '2018-11-04');
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (402, '2018-10-04', '2018-11-04');
 
 -- Insertamos Órdenes Realizadas
 
@@ -271,8 +272,9 @@ INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 12, 
 INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 13, 401);
 INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 14, 401);
 INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 15, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 16, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 17, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 18, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 19, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 20, 401);
+
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 16, 402);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 17, 402);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 18, 402);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 19, 402);
+INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 20, 402);
