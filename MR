@@ -1,9 +1,10 @@
-/*Modelo entidad relacion */
+/* Modelo entidad relacion */
 nombre() PK=() FK={}
 
 Producto(codigo, nombre, costo)  PK=(codigo)
 MateriaPrima(codigo, descripcion, costoBase)  PK=(codigo)
-Formula(CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) PK=(CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) FK={CodigoProductoFinal=>Producto.codigo, CodigoProductoBase=>Producto.codigo, CodigoMateriaPrima=>MateriaPrima.codigo}
+FormulaUnaria(CodigoProductoFinal, CodigoProductoBase) PK=(CodigoProductoFinal, CodigoProductoBase) FK={CodigoProductoFinal=>Producto.codigo, CodigoProductoBase=>Producto.codigo}
+FormulaBinaria(CodigoProductoFinal, CodigoMateriaPrima) PK=(CodigoProductoFinal, CodigoMateriaPrima) FK={CodigoProductoFinal=>Producto.codigo, CodigoMateriaPrima=>MateriaPrima.codigo}
 
 IVA(ID,descripcion,valor) PK=(ID)
 Cliente(CUIT, RazonSocial, domicilio, telefono, ID_IVA) PK=(CUIT) FK={ID_IVA=>IVA.ID}
@@ -13,12 +14,9 @@ Item(IDItem, cantidad, PrecioUnitario, CodigoProducto, Pedido) PK=(IDItem) FK={C
 OrdenFabricacion(NumeroPartida, fechaOrden, fechaVencimiento) PK=(NumeroPartida)
 Fabricacion(IDItem, NumeroPartida) PK=(IDItem, NumeroPartida) FK={IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
 
-/* Punto extra 
-Proveedor() PK=() FK={}
-*/
-
+/* Punto extra */
 
 Proveedor(CUIT, razonSocial, domicilio, mail) PK=(CUIT) 
 Lista(CodMP, fecha) PK=(CodMP) FK={}
-Relacion(CUIT, Lista, MateriaPrima, precio) PK=(Lista, MateriaPrima) FK={CUIT=>Proveedor.CUIT, Lista=>ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
+Relacion(CUIT, Lista, MateriaPrima, precio) PK=(Lista, MateriaPrima) FK={CUIT=>Proveedor.CUIT, Lista=>Lista.ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
 
