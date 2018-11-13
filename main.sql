@@ -62,7 +62,9 @@ create table Pedido(
     NumeroPedido integer NOT NULL AUTO_INCREMENT,
     Descripcion varchar(30) NOT NULL,
     Fecha date NOT NULL,
+    cliente bigint NOT NULL,
     constraint PK_Pedido_NumeroPedido primary key (NumeroPedido)
+    constraint FK_Pedido_CUITCliente foreign key (clente) reference Cliente (CUIT)
 );
 
 /*DROP TABLE Item;*/
@@ -71,8 +73,11 @@ create table Item(
     PrecioUnitario decimal(6, 2) NOT NULL,
     Cantidad integer NOT NULL,
     CodigoProducto varchar(12) NOT NULL,
+    Pedido NOT NULL,
     constraint PK_Item_IDItem primary key (IDItem),
-    constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo)
+    constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo),
+    constraint FK_Item_Pedido foreign key (Pedido) references Pedido (NumeroPedido)
+
 );
 
 /*DROP TABLE PedidoRealizado;*/
@@ -91,17 +96,15 @@ create table OrdenFabricacion(
     NumeroPartida integer NOT NULL,
     FechaOrden date NOT NULL,
     FechaVencimiento date NOT NULL,
-   constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
+    constraint PK_OrdenFabricacion_NumeroPartida primary key (NumeroPartida)
 );
 
 /*DROP TABLE OrdenRealizada;*/
-create table OrdenRealizada(
-    NumeroPedido integer NOT NULL,
+create table Fabricacion(
     IDItem integer NOT NULL,
     NumeroPartida integer NOT NULL,
     primary key (NumeroPedido, IDItem, NumeroPartida),
     constraint FK_Item_IDItemOrden foreign key (IDItem) references Item (IDItem),
-    constraint FK_Pedido_NPedidoOrden foreign key (NumeroPedido) references Pedido (NumeroPedido),
     constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)
 );
 
@@ -118,7 +121,6 @@ create table Proveedor(
 create table Lista(
     CodMP integer NOT NULL,
     fecha date, 
-    precio decimal(6,2),
     primary key (CodMP)
 );
 /*DROP TABLE Relacion;*/
@@ -126,7 +128,8 @@ create table Relacion(
     CUIT decimal(8,0) NOT NULL,
     lista integer NOT NULL,
     materiaPrima varchar(12) NOT NULL,
-    primary key (CUIT, lista),
+    precio decimal(6,2),
+    primary key (materiaPrima, lista),
     constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
     constraint FK_Lista_CodMP foreign key (lista) references Lista (CodMP),
     constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
