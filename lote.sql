@@ -156,82 +156,47 @@ INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (012
 -- Insertamos Pedidos
 
 -- TRUNCATE pedido;
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("Eau de Chocobo", '2016-07-07');
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes de mujer", '2017-07-08');
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfume de hombre", '2017-07-26');
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("niños", '2018-07-27');
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("Eau de Chocobo", '2018-09-12');
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("Todos los productos", '2018-10-02');
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Eau de Chocobo", '2016-07-07', 31804714718);
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes de mujer", '2017-07-08', 30710123389);
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfume de hombre", '2017-07-26', 31710123600);
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("niños", '2018-07-27', 30710123389);
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("Eau de Chocobo", '2018-09-12', 31804714718);
+INSERT INTO pedido (Descripcion, Fecha) VALUES ("Todos los productos", '2018-10-02'. 01234567890);
 
 -- Insertamos Items
                                                 
 -- TRUNCATE item;
 -- 1
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "EAUCHOCB");
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "EAUCHOCB", 1);
 
 -- 2
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 10, "ACQUAPAR");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 20, "COLSHAL");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 8, "THOM");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 12, "HENOPRAV");
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 10, "ACQUAPAR", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 20, "COLSHAL", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 8, "THOM", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 12, "HENOPRAV", 2);
 
 -- 3
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 8, "THOM");
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 8, "THOM", 3);
 
 -- 4
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 80, "PERNIN1");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 75, "PERNIN2");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 30, "PERNINA1");
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 80, "PERNIN1", 4);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 75, "PERNIN2", 4);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 30, "PERNINA1", 4);
 
 -- 5
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 430, "EAUCHOCB");
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 430, "EAUCHOCB", 5);
 
 -- 6
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "MARINE");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "HENOPRAV");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "PERNIN1");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "PERNINA1");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "PERNIN2");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "EAUCHOCB");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "COLSHAL");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "ACQUAPAR");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "THOM");
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto) VALUES (150, 200, "ALLINONE");
-
-
--- Insertamos Pedidos Realizados
-
--- TRUNCATE pedidorealizado;
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (1, 31804714718, 1);
-
--- 2
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (2, 31710123600, 2);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (3, 31710123600, 2);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (4, 31710123600, 2);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (5, 31710123600, 2);
-
--- 3
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (6, 30710123389, 3);
-
--- 4
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (7, 30710123450, 4);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (8, 30710123450, 4);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (9, 30710123450, 4);
-
--- 5
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (10, 31804714718, 5);
-
--- 6
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (11, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (12, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (13, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (14, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (15, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (16, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (17, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (18, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (19, 01234567890, 6);
-INSERT INTO pedidorealizado (IDItem, CUITCliente, NumeroPedido) VALUES (20, 01234567890, 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "MARINE", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "HENOPRAV", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNIN1", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNINA1", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNIN2", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "EAUCHOCB", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "COLSHAL", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "ACQUAPAR", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "THOM", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "ALLINONE", 6);
 
 -- Insertamos Órdenes de Fabricación
 
@@ -250,31 +215,31 @@ INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUE
 
 -- Insertamos Órdenes Realizadas
 
--- TRUNCATE ordenrealizada;
+-- TRUNCATE Fabricacion;
 -- 1
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (1, 1, 171);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (1, 171);
 -- 2
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 2, 272);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 3, 272);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 4, 272);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (2, 5, 272);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (2, 272);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (3, 272);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (4, 272);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (5, 272);
 -- 3
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (3, 6, 273);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (6, 273);
 -- 4
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (4, 7, 273);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (4, 8, 273);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (4, 9, 273);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (7, 273);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (8, 273);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (9, 273);
 -- 5
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (5, 10, 371);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (10, 371);
 -- 6
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 11, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 12, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 13, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 14, 401);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 15, 401);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (11, 401);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (12, 401);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (13, 401);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (14, 401);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (15, 401);
 
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 16, 402);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 17, 402);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 18, 402);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 19, 402);
-INSERT INTO ordenrealizada (NumeroPedido, IDItem, NumeroPartida) VALUES (6, 20, 402);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (16, 402);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (17, 402);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (18, 402);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (19, 402);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (20, 402);
