@@ -157,11 +157,11 @@ INSERT INTO cliente (CUIT, RazonSocial, Domicilio, Telefono, ID_IVA) VALUES (012
 
 -- TRUNCATE pedido;
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Eau de Chocobo", '2016-07-07', 31804714718);
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfumes de mujer", '2017-07-08', 30710123389);
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("perfume de hombre", '2017-07-26', 31710123600);
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("niños", '2018-07-27', 30710123389);
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("Eau de Chocobo", '2018-09-12', 31804714718);
-INSERT INTO pedido (Descripcion, Fecha) VALUES ("Todos los productos", '2018-10-02'. 01234567890);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("perfumes de mujer", '2017-07-08', 30710123389);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("perfume de hombre", '2017-07-26', 31710123600);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("niños", '2018-07-27', 30710123389);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Eau de Chocobo", '2018-09-12', 31804714718);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Todos los productos", '2018-10-02'. 01234567890);
 
 -- Insertamos Items
                                                 
