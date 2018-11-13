@@ -73,7 +73,7 @@ create table Item(
     PrecioUnitario decimal(6, 2) NOT NULL,
     Cantidad integer NOT NULL,
     CodigoProducto varchar(12) NOT NULL,
-    Pedido NOT NULL,
+    Pedido integer NOT NULL,
     constraint PK_Item_IDItem primary key (IDItem),
     constraint FK_Item_CodProducto foreign key (CodigoProducto) references Producto (Codigo),
     constraint FK_Item_Pedido foreign key (Pedido) references Pedido (NumeroPedido)
