@@ -7,12 +7,11 @@ Formula(CodigoProductoFinal, CodigoProductoBase, CodigoMateriaPrima) PK=(CodigoP
 
 IVA(ID,descripcion,valor) PK=(ID)
 Cliente(CUIT, RazonSocial, domicilio, telefono, ID_IVA) PK=(CUIT) FK={ID_IVA=>IVA.ID}
-Pedido(NumeroPedido, descripcion, fecha) PK=(NumeroPedido)
-Item(IDItem, cantidad, PrecioUnitario, CodigoProducto) PK=(IDItem) FK={CodigoProducto=>Producto.codigo}
-Solicita(CUITCliente, NumeroPedido, IDItem)  PK=(CUITCliente, NumeroPedido, IDItem) FK={CUITCliente=>Cliente.CUIT, NumeroPedido=>Pedido.NumeroPedido,IDItem=>Item.IDItem}
 
+Pedido(NumeroPedido, descripcion, fecha, cliente) PK=(NumeroPedido) FK={cliente=>Cliente.CUIT}
+Item(IDItem, cantidad, PrecioUnitario, CodigoProducto, Pedido) PK=(IDItem) FK={CodigoProducto=>Producto.codigo, pedido=>Pedido.NumeroPedido}
 OrdenFabricacion(NumeroPartida, fechaOrden, fechaVencimiento) PK=(NumeroPartida)
-OrdenRealizada(NumeroPedido, IDItem, NumeroPartida) PK=(NumeroPedido, IDItem) FK={NumeroPedido=>Pedido.NumeroPedido, IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
+Fabricacion(IDItem, NumeroPartida) PK=(IDItem, NumeroPartida) FK={IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
 
 /* Punto extra 
 Proveedor() PK=() FK={}
@@ -20,6 +19,6 @@ Proveedor() PK=() FK={}
 
 
 Proveedor(CUIT, razonSocial, domicilio, mail) PK=(CUIT) 
-Lista(CodMP, precio, fecha) PK=(CodMP) FK={}
-Relacion(CUIT, Lista, MateriaPrima) PK=(CUIT, Lista) FK={CUIT=>Proveedor.CUIT, Lista=>ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
+Lista(CodMP, fecha) PK=(CodMP) FK={}
+Relacion(CUIT, Lista, MateriaPrima, precio) PK=(Lista, MateriaPrima) FK={CUIT=>Proveedor.CUIT, Lista=>ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
 
