@@ -14,6 +14,7 @@ where year(OrdenFabricacion.FechaOrden) != year(curdate());
 
 
 -- ¿Qué materias primas son las más populares?
+-- Las materias primas que estan en fabricacion son las populares porque estan uso
 select materiaprima.*
 from materiaprima
 inner join FormulaBinaria
@@ -22,15 +23,16 @@ inner join Producto
 on Producto.Codigo = FormulaBinaria.CodigoProductoFinal
 inner join item
 on item.CodigoProducto = producto.Codigo
-inner join OrdenRealizada
-on OrdenRealizada.IDItem = item.IDItem
+inner join Fabricacion 
+on Fabricacion.IDItem = Item.IDItem
 inner join OrdenFabricacion
-on OrdenFabricacion.NumeroPartida = OrdenRealizada.NumeroPartida
+on OrdenFabricacion.NumeroPartida = Fabricacion.NumeroPartida
 group by materiaprima.Codigo;
 
 
 
 -- Reporte de composición de productos
+-- revisar
 select pfinal.Codigo AS CodigoProductoFinal, pfinal.Nombre AS NombreProductoFinal,
 pbase.Codigo AS CodigoProductoBase, pbase.Nombre AS NombreProductoBase,
 mp.codigo as CodigoMateriaPrima, mp.descripcion as DescripcionMateriaPrima
@@ -47,21 +49,21 @@ on mp.codigo = fb.CodigoMateriaPrima;
 
 
 -- Lista de nuestros clientes más importantes en cuanto a productos pedidos.
--- cantidad precio pedido, productos distintos?
+-- cantidad items pedidos
 select cliente.cuit, cliente.razonsocial, SUM(item.cantidad) AS CantidadProductosPedidos 
 from cliente
-inner join pedidorealizado
-on pedidorealizado.CUITCliente = cliente.cuit
+inner join pedido
+on pedido.cliente = cliente.cuit
 inner join item
-on item.iditem = pedidorealizado.iditem
+on item.Pedido = pedido.NumeroPedido
 group by cliente.cuit
 ORDER BY CantidadProductosPedidos desc
-limit 5;
+limit 2;
 
 
 
 -- ¿Qué productos utilizan TODAS las materias primas?
--- ninguno
+-- 1 : AllInOne
 SELECT  Producto.codigo, Producto.nombre
 FROM producto 
 inner JOIN formulabinaria
@@ -78,17 +80,17 @@ having (select count(codigo) from materiaprima) = count(formulabinaria.CodigoPro
 
 
 -- Ranking de productos más vendidos en el último año.
-select p.codigo, p.nombre, AVG(i.cantidad) AS PromedioVentaAnual
-FROM Producto AS p
-INNER JOIN Item AS i
-ON i.CodigoProducto = p.Codigo
-INNER JOIN PedidoRealizado AS pr
-ON pr.IDItem = i.IDItem
-INNER JOIN Pedido AS pe
-ON pe.NumeroPedido = pr.NumeroPedido
-WHERE year(pe.Fecha) = year(curdate())
-group by p.codigo
-order by i.cantidad desc;
+-- mas vendidos > promedio
+select Producto.codigo, Producto.nombre, ROUND( AVG(Item.cantidad), 2) AS PromedioVentaAnual
+FROM Producto
+INNER JOIN Item
+ON Item.CodigoProducto = Producto.Codigo
+INNER JOIN Pedido 
+ON pedido.NumeroPedido = item.Pedido
+WHERE year(pedido.Fecha) = year(curdate())
+group by Producto.codigo
+order by Item.cantidad desc
+limit 2;
 
 
 
@@ -98,26 +100,25 @@ order by i.cantidad desc;
 -- la orden 6 esta dividida en dos ordenes
 select ordenfabricacion.*
 from ordenfabricacion
-inner join ordenrealizada
-on ordenrealizada.numeropartida = ordenfabricacion.numeropartida
-where ordenrealizada.numeropedido in(3, 4, 6) group by ordenfabricacion.numeropartida;
+inner join fabricacion
+on ordenfabricacion.numeropartida = fabricacion.numeropartida
+inner join item
+on fabricacion.IDItem = Item.IDItem
+where Item.pedido in(3, 4, 6) group by ordenfabricacion.numeropartida;
 
 
 
 -- Dado un pedido, cuánto cuesta fabricarlo y su precio de venta final.
-select DISTINCT item.iditem, pedido.numeropedido, pedido.descripcion, sum(item.cantidad) as TotalProductos, sum(item.cantidad * item.PrecioUnitario) as CostoFabricacion,
-(item.PrecioUnitario*((iva.valor/100)+1))*item.cantidad as PrecioVentaFinal
+-- revisar, tiene que dar 3 items
+select pedido.numeropedido, pedido.descripcion, sum(item.cantidad) as TotalProductos, sum(item.cantidad * Producto.costo) as CostoFabricacion,
+round( sum( item.PrecioUnitario * item.cantidad * (1 + (iva.valor/100)) ) ,2) as PrecioVentaFinal
 from pedido
-inner join ordenrealizada
-on pedido.numeropedido = ordenrealizada.NumeroPedido
-inner join ordenfabricacion
-on ordenfabricacion.numeropartida = ordenrealizada.NumeroPartida
 inner join item
-on item.iditem = ordenrealizada.iditem
-inner join pedidorealizado
-on pedidorealizado.NumeroPedido = pedido.numeropedido
+on item.Pedido = pedido.NumeroPedido
+inner join producto
+on item.CodigoProducto = producto.Codigo
 inner join cliente
-on cliente.cuit = pedidorealizado.cuitcliente
+on cliente.cuit = pedido.cliente
 inner join iva
 on iva.id = cliente.ID_IVA
 where pedido.numeropedido = 4;

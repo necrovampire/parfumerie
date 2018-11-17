@@ -161,42 +161,42 @@ INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("perfumes de mujer", '2
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("perfume de hombre", '2017-07-26', 31710123600);
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("niños", '2018-07-27', 30710123389);
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Eau de Chocobo", '2018-09-12', 31804714718);
-INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Todos los productos", '2018-10-02'. 01234567890);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Todos los productos", '2018-10-02', 01234567890);
 
 -- Insertamos Items
                                                 
 -- TRUNCATE item;
 -- 1
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "EAUCHOCB", 1);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "EAUCHOCB", 1);
 
 -- 2
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 10, "ACQUAPAR", 2);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 20, "COLSHAL", 2);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 8, "THOM", 2);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 12, "HENOPRAV", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 10, "ACQUAPAR", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 20, "COLSHAL", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 8, "THOM", 2);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 12, "HENOPRAV", 2);
 
 -- 3
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 8, "THOM", 3);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (2500, 8, "THOM", 3);
 
 -- 4
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 80, "PERNIN1", 4);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 75, "PERNIN2", 4);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 30, "PERNINA1", 4);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 80, "PERNIN1", 4);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 75, "PERNIN2", 4);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 30, "PERNINA1", 4);
 
 -- 5
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 430, "EAUCHOCB", 5);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 430, "EAUCHOCB", 5);
 
 -- 6
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "MARINE", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "HENOPRAV", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNIN1", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNINA1", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "PERNIN2", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "EAUCHOCB", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "COLSHAL", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "ACQUAPAR", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "THOM", 6);
-INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (150, 200, "ALLINONE", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "MARINE", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "HENOPRAV", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNIN1", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNINA1", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNIN2", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "EAUCHOCB", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "COLSHAL", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "ACQUAPAR", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "THOM", 6);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "ALLINONE", 6);
 
 -- Insertamos Órdenes de Fabricación
 

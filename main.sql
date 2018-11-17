@@ -48,6 +48,7 @@ create table IVA(
 
 /*DROP TABLE Cliente;*/
 create table Cliente(
+ /* CUIT 2+8+1 digitos */
     CUIT bigint NOT NULL,
     RazonSocial varchar(25) NOT NULL,
     Domicilio varchar(30) NOT NULL,
@@ -63,8 +64,8 @@ create table Pedido(
     Descripcion varchar(30) NOT NULL,
     Fecha date NOT NULL,
     cliente bigint NOT NULL,
-    constraint PK_Pedido_NumeroPedido primary key (NumeroPedido)
-    constraint FK_Pedido_CUITCliente foreign key (clente) reference Cliente (CUIT)
+    constraint PK_Pedido_NumeroPedido primary key (NumeroPedido),
+    constraint FK_Pedido_CUITCliente foreign key (cliente) references Cliente (CUIT)
 );
 
 /*DROP TABLE Item;*/
@@ -92,7 +93,7 @@ create table OrdenFabricacion(
 create table Fabricacion(
     IDItem integer NOT NULL,
     NumeroPartida integer NOT NULL,
-    primary key (NumeroPedido, IDItem, NumeroPartida),
+    primary key (IDItem, NumeroPartida),
     constraint FK_Item_IDItemOrden foreign key (IDItem) references Item (IDItem),
     constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)
 );
