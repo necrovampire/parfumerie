@@ -76,7 +76,6 @@ having (select count(codigo) from materiaprima) = count(formulabinaria.CodigoPro
 
 -- ¿Qué ordenes de fabricación contemplan todos los productos?
 -- El pedido 7 tiene todos los productos
--- orden con
 select OrdenFabricacion.*
 from OrdenFabricacion
 inner join Fabricacion
@@ -133,5 +132,15 @@ on iva.id = cliente.ID_IVA
 where pedido.numeropedido = 4;
 
 
+-- EXTRA
+-- ¿Cuáles son las materias primas provistas por un único proveedor?
+-- Contestar este ítem como parte del puntaje extra.
 
--- ¿Cuáles son las materias primas provistas por un único proveedor? Contestar este ítem como parte del puntaje extra.
+select MateriaPrima.codigo, MateriaPrima.descripcion, Relacion.precio, Proveedor.razonsocial
+from materiaPrima
+inner join relacion
+on relacion.materiaPrima = MateriaPrima.codigo
+inner join proveedor
+on proveedor.cuit = relacion.cuit
+group by relacion.materiaprima
+having count(relacion.materiaprima) = 1;
