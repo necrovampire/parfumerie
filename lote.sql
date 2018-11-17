@@ -162,6 +162,7 @@ INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("perfume de hombre", '2
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("niños", '2018-07-27', 30710123389);
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Eau de Chocobo", '2018-09-12', 31804714718);
 INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Todos los productos", '2018-10-02', 01234567890);
+INSERT INTO pedido (Descripcion, Fecha, cliente) VALUES ("Todos los productos 2", '2018-10-02', 01234567890);
 
 -- Insertamos Items
                                                 
@@ -198,6 +199,18 @@ INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500
 INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "THOM", 6);
 INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "ALLINONE", 6);
 
+-- 7
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "MARINE", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "HENOPRAV", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNIN1", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNINA1", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "PERNIN2", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "EAUCHOCB", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "COLSHAL", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "ACQUAPAR", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "THOM", 7);
+INSERT INTO item (PrecioUnitario, Cantidad, CodigoProducto, Pedido) VALUES (1500, 200, "ALLINONE", 7);
+
 -- Insertamos Órdenes de Fabricación
 
 -- TRUNCATE ordenfabricacion;
@@ -212,6 +225,9 @@ INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUE
 -- 6
 INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (401, '2018-10-03', '2018-11-04');
 INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (402, '2018-10-04', '2018-11-04');
+-- 7
+INSERT INTO ordenfabricacion (NumeroPartida, FechaOrden, FechaVencimiento) VALUES (403, '2018-11-04', '2018-12-04');
+
 
 -- Insertamos Órdenes Realizadas
 
@@ -243,3 +259,15 @@ INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (17, 402);
 INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (18, 402);
 INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (19, 402);
 INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (20, 402);
+
+-- 7
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (11, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (12, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (13, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (14, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (15, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (16, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (17, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (18, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (19, 403);
+INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (20, 403);

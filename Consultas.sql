@@ -75,7 +75,16 @@ having (select count(codigo) from materiaprima) = count(formulabinaria.CodigoPro
 
 
 -- ¿Qué ordenes de fabricación contemplan todos los productos?
--- de una orden de fabricacion? 
+-- El pedido 7 tiene todos los productos
+-- orden con
+select OrdenFabricacion.*
+from OrdenFabricacion
+inner join Fabricacion
+on Fabricacion.NumeroPartida = OrdenFabricacion.NumeroPartida
+inner join item
+on Fabricacion.IDItem = item.IDItem
+group by fabricacion.numeropartida
+having count(fabricacion.iditem) = (select count(codigo) from producto);
 
 
 
