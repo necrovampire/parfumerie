@@ -1,14 +1,14 @@
 use Perfumerie;
 
 -- ¿Cuáles son los productos que no hemos fabricado en el último año?
-select Producto.nombre
+select producto.nombre
 from Producto
-inner join item
-on item.CodigoProducto = Producto.Codigo
-inner join OrdenRealizada
-on OrdenRealizada.IDItem = item.IDItem
+inner join Item 
+on Item.CodigoProducto = Producto.Codigo
+inner join Fabricacion 
+on Fabricacion.IDItem = Item.IDItem
 inner join OrdenFabricacion
-on OrdenFabricacion.NumeroPartida = OrdenRealizada.NumeroPartida
+on OrdenFabricacion.NumeroPartida = Fabricacion.NumeroPartida
 where year(OrdenFabricacion.FechaOrden) != year(curdate());
 
 
