@@ -18,5 +18,5 @@ Fabricacion(IDItem, NumeroPartida) PK=(IDItem, NumeroPartida) FK={IDItem=>Item.I
 
 Proveedor(CUIT, razonSocial, domicilio, mail) PK=(CUIT) 
 Lista(CodMP, fecha) PK=(CodMP) FK={}
-Relacion(CUIT, Lista, MateriaPrima, precio) PK=(Lista, MateriaPrima) FK={CUIT=>Proveedor.CUIT, Lista=>Lista.ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
+Relacion(CUIT, Lista, MateriaPrima, precio) PK=(Lista, MateriaPrima, CUIT) FK={CUIT=>Proveedor.CUIT, Lista=>Lista.ListaCodMP, MateriaPrima=>MateriaPrima.codigo}
 

@@ -279,7 +279,7 @@ INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (20, 403);
 -- Insertamos Proveedores
 INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456789198, "Juan Pan", "calle falsa 123", "jp@gmail.com");
 INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30256776190, "Juan bread", "calle falsa 321", "jb@gmail.com");
-INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456789194, "Juan Ekmek", "yanlıs sokak 564", "je@gmail.com");
+INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456789194, "Juan Ekmek", "yanlis sokak 564", "je@gmail.com");
 INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456579195, "Juan Hleb", "lazna ulica 446", "jh@gmail.com");
 
 -- Insertamos Listas

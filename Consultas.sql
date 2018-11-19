@@ -89,7 +89,7 @@ having count(fabricacion.iditem) = (select count(codigo) from producto);
 
 -- Ranking de productos más vendidos en el último año.
 -- mas vendidos > promedio
-select Producto.codigo, Producto.nombre, ROUND( AVG(Item.cantidad), 2) AS PromedioVentaAnual
+select Producto.codigo, Producto.nombre, ROUND( AVG(Item.cantidad)) AS PromedioVentaAnual
 FROM Producto
 INNER JOIN Item
 ON Item.CodigoProducto = Producto.Codigo
@@ -136,7 +136,7 @@ where pedido.numeropedido = 4;
 -- ¿Cuáles son las materias primas provistas por un único proveedor?
 -- Contestar este ítem como parte del puntaje extra.
 
-select MateriaPrima.codigo, MateriaPrima.descripcion, Relacion.precio, Proveedor.razonsocial
+select relacion.materiaprima, MateriaPrima.descripcion, Relacion.precio, Proveedor.razonsocial
 from materiaPrima
 inner join relacion
 on relacion.materiaPrima = MateriaPrima.codigo

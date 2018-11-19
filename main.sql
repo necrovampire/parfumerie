@@ -120,7 +120,7 @@ create table Relacion(
     lista integer NOT NULL,
     materiaPrima varchar(12) NOT NULL,
     precio decimal(6,2),
-    primary key (materiaPrima, lista),
+    primary key (materiaPrima, lista, CUIT),
     constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
     constraint FK_Lista_CodMP foreign key (lista) references Lista (CodLista),
     constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
