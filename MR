@@ -15,7 +15,7 @@ OrdenFabricacion(NumeroPartida, fechaOrden, fechaVencimiento) PK=(NumeroPartida)
 Fabricacion(IDItem, NumeroPartida) PK=(IDItem, NumeroPartida) FK={IDItem=>Item.IDItem, NumeroPartida=>OrdenFabricacion.NumeroPartida}
 
 /* Punto extra */
-Lista(CodLista, fecha, precio) PK=(CodLista)
+Lista(CodLista, fecha) PK=(CodLista)
 Proveedor(CUIT, razonSocial, domicilio, mail, Lista) PK=(CUIT) FK={Lista=>Lista.CodLista}
-Listado(MateriaPrima, Lista) PK=(MateriaPrima, Lista) FK={MateriaPrima=>MateriaPrima.codigo, Lista=>CodLista}
+Listado(MateriaPrima, Lista, precio) PK=(MateriaPrima, Lista) FK={MateriaPrima=>MateriaPrima.codigo, Lista=>CodLista}
 
