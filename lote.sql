@@ -275,65 +275,68 @@ INSERT INTO Fabricacion (IDItem, NumeroPartida) VALUES (20, 403);
 
 
 -- LOTE PUNTO EXTRA
-
--- Insertamos Proveedores
-INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456789198, "Juan Pan", "calle falsa 123", "jp@gmail.com");
-INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30256776190, "Juan bread", "calle falsa 321", "jb@gmail.com");
-INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456789194, "Juan Ekmek", "yanlis sokak 564", "je@gmail.com");
-INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail) VALUES (30456579195, "Juan Hleb", "lazna ulica 446", "jh@gmail.com");
-
 -- Insertamos Listas
+-- 1
 INSERT INTO Lista (fecha) VALUES ('2014-02-03');
+-- 2
 INSERT INTO Lista (fecha) VALUES ('2016-07-30');
+-- 3
 INSERT INTO Lista (fecha) VALUES ('2017-09-05');
+-- 4
 INSERT INTO Lista (fecha) VALUES ('2018-05-07');
 
--- Insertamos los precios
+-- Insertamos Proveedores
 
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "AQUA", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "ALCH", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "ALCHIS", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "OXIALU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLROJ", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLROJ2", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLAZU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLAMA", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLVIO", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLVER", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLNAR", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLNEG", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLDOR", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLPLA", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789198, 1, "COLDOR1", 50);
+INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail, Lista) VALUES (30456789198, "Juan Pan", "calle falsa 123", "jp@gmail.com",1);
+INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail, Lista) VALUES (30256776190, "Juan bread", "calle falsa 321", "jb@gmail.com",2);
+INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail, Lista) VALUES (30456789194, "Juan Ekmek", "yanlis sokak 564", "je@gmail.com",3);
+INSERT INTO Proveedor (CUIT, razonsocial, domicilio, mail, Lista) VALUES (30456579195, "Juan Hleb", "lazna ulica 446", "jh@gmail.com",4);
 
 
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ALCH", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ALCHIS", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "OXIALU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "AQUAM", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEFRU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEVAI", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ESELAV", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEROS", 50);
 
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ALCH", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ALCHIS", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "OXIALU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEALM", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEHEN", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ESESHAL", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEACQUA", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456789194, 3, "EMVPLA100", 50);
+-- Insertamos los preciosRT INTO Relacion (lista, materiaPrima, precio) VALUES (30456789198, 1, "AQUA", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "ALCH", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "ALCHIS", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "OXIALU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLROJ", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLROJ2", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLAZU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLAMA", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLVIO", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLVER", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLNAR", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLNEG", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLDOR", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLPLA", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789198, 1, "COLDOR1", 50);
 
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "ALCH", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "ALCHIS", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "OXIALU", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA100", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA200", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA250", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA500", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLARE100", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLACU101", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR100", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR200", 50);
-INSERT INTO Relacion (CUIT, lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR500", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ALCH", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ALCHIS", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "OXIALU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "AQUAM", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEFRU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEVAI", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ESELAV", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30256776190, 2, "ESEROS", 50);
+
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ALCH", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ALCHIS", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "OXIALU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEALM", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEHEN", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ESESHAL", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "ESEACQUA", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456789194, 3, "EMVPLA100", 50);
+
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "ALCH", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "ALCHIS", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "OXIALU", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA100", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA200", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA250", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLA500", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLARE100", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVPLACU101", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR100", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR200", 50);
+INSERT INTO Listado (lista, materiaPrima, precio) VALUES (30456579195, 4, "EMVIDR500", 50);
