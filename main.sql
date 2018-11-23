@@ -98,30 +98,35 @@ create table Fabricacion(
     constraint FK_OrdenFabricacion_NumeroPartida foreign key (NumeroPartida) references OrdenFabricacion (NumeroPartida)
 );
 
+
+/* PUNTO EXTRA */
+
+/*DROP TABLE Lista;*/
+create table Lista(
+    CodLista integer NOT NULL auto_increment,
+    fecha date, 
+    precio decimal(6, 2) NOT NULL,
+    primary key (CodLista)
+);
+
 /*DROP TABLE Proveedor;*/
 create table Proveedor(
     CUIT bigint NOT NULL,
     razonSocial varchar(30) NOT NULL,
     Domicilio varchar(30),
     mail varchar(30),
-    primary key (CUIT)
+    Lista integer NOT NULL,
+    primary key (CUIT),
+    constraint FK_Lista_CodLista foreign key (lista) references Lista (CodLista)
 );
 
-/*DROP TABLE Lista;*/
-create table Lista(
-    CodLista integer NOT NULL auto_increment,
-    fecha date, 
-    primary key (CodLista)
-);
+
 
 /*DROP TABLE Relacion;*/
-create table Relacion(
-    CUIT bigint NOT NULL,
+create table Listado(
     lista integer NOT NULL,
     materiaPrima varchar(12) NOT NULL,
-    precio decimal(6,2),
-    primary key (materiaPrima, lista, CUIT),
-    constraint FK_Proveedor_CUIT foreign key (CUIT) references Proveedor (CUIT),
+    primary key (materiaPrima, lista),
     constraint FK_Lista_CodMP foreign key (lista) references Lista (CodLista),
     constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
 );
