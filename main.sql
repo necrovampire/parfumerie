@@ -105,7 +105,6 @@ create table Fabricacion(
 create table Lista(
     CodLista integer NOT NULL auto_increment,
     fecha date, 
-    precio decimal(6, 2) NOT NULL,
     primary key (CodLista)
 );
 
@@ -126,6 +125,7 @@ create table Proveedor(
 create table Listado(
     lista integer NOT NULL,
     materiaPrima varchar(12) NOT NULL,
+    precio decimal(6, 2) NOT NULL,
     primary key (materiaPrima, lista),
     constraint FK_Lista_CodMP foreign key (lista) references Lista (CodLista),
     constraint FK_MateriPrima_Codigo foreign key (materiaPrima) references MateriaPrima (codigo)
