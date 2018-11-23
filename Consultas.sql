@@ -136,11 +136,13 @@ where pedido.numeropedido = 4;
 -- ¿Cuáles son las materias primas provistas por un único proveedor?
 -- Contestar este ítem como parte del puntaje extra.
 
-select relacion.materiaprima, MateriaPrima.descripcion, Relacion.precio, Proveedor.razonsocial
+select Listado.materiaprima, MateriaPrima.descripcion, Relacion.precio, Proveedor.razonsocial
 from materiaPrima
-inner join relacion
-on relacion.materiaPrima = MateriaPrima.codigo
+inner join Listado
+on Listado.materiaPrima = MateriaPrima.codigo
+inner join Lista
+on Lista.CodLista = Listado.Lista
 inner join proveedor
-on proveedor.cuit = relacion.cuit
-group by relacion.materiaprima
-having count(relacion.materiaprima) = 1;
+on proveedor.lista = Lista.CodLista
+group by Listado.materiaprima
+having count(Listado.materiaprima) = 1;
