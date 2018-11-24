@@ -72,7 +72,13 @@ inner join materiaprima
 on materiaprima.Codigo = FormulaBinaria.CodigoMateriaPrima group by formulabinaria.CodigoProductoFinal
 having (select count(codigo) from materiaprima) = count(formulabinaria.CodigoProductoFinal);
 
-
+select p.Codigo, p.Nombre
+from producto as p
+where not exists (select 1
+					from materiaprima as mp
+                    where not exists(select 1
+										from formulabinaria as fb
+                                        where fb.CodigoMateriaPrima = mp.Codigo AND fb.CodigoProductoFinal = p.Codigo));
 
 -- ¿Qué ordenes de fabricación contemplan todos los productos?
 -- El pedido 7 tiene todos los productos
@@ -97,9 +103,9 @@ INNER JOIN Pedido
 ON pedido.NumeroPedido = item.Pedido
 WHERE year(pedido.Fecha) = year(curdate())
 group by Producto.codigo
-order by Item.cantidad desc
-limit 2;
-
+having PromedioVentaAnual > (SELECT ROUND( AVG(Item.cantidad))
+							FROM Item)
+order by Item.cantidad desc;
 
 
 
@@ -136,7 +142,7 @@ where pedido.numeropedido = 4;
 -- ¿Cuáles son las materias primas provistas por un único proveedor?
 -- Contestar este ítem como parte del puntaje extra.
 
-select Listado.materiaprima, MateriaPrima.descripcion, Listado.precio, Proveedor.razonsocial
+select Proveedor.razonsocial as vendedor, Listado.materiaprima, MateriaPrima.descripcion, Listado.precio
 from materiaPrima
 inner join Listado
 on Listado.materiaPrima = MateriaPrima.codigo
@@ -145,4 +151,5 @@ on Lista.CodLista = Listado.Lista
 inner join proveedor
 on proveedor.lista = Lista.CodLista
 group by Listado.materiaprima
-having count(Listado.materiaprima) = 1;
+having count(Listado.materiaprima) = 1
+order by vendedor;
